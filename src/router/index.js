@@ -9,6 +9,7 @@ import Center from '@/views/Center'
 import color from '../../src/views/color.vue'
 import index from '../views/index.vue'
 import game from '../views/game.vue'
+import Start from '../views/Start.vue'
 
 
 // 引入样式
@@ -26,8 +27,8 @@ Vue.use(Router)
 export default new Router({
     routes: [{
         path: '/',
-        name: 'index',
-      component: index
+        name: 'Start',
+      component: Start
     }, {
       path: '/color',
       name: 'color',
