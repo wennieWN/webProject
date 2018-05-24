@@ -1,9 +1,19 @@
 <template>
   <div>
+    <div class="head_home">
+      <router-link to="/index">首页</router-link>
+      <router-link to="/color">色彩</router-link>
+      <router-link to="/index">搭配</router-link>
+      <router-link to="/game">游戏</router-link>
+
+      <div class="head_center">
+        <span>Color Pop</span>
+      </div>
+    </div>
+
     <div id="bgWrap">
     </div>
     <div id="container">
-
       <!--标题-->
       <article id="data1"style="text-align: center">
         <span style="color:white;font-size:100px;font-family:'Hannotate SC'">{{this.name}}</span><br><br>
@@ -105,6 +115,37 @@
 //      $("#bgWrap").css('background', "rgb(244,121,131)");
 //      document.querySelector('bgWrap').setAttribute('style', "background:rgb(244,121,131)");
       document.querySelector('body').setAttribute('style', "background:rgb(255,179,167)");
+
+        //窗口滚动事件
+        let beforeScroll = {
+            'background-color': 'transparent',
+            'color': '#ffffff',
+            'border': 'none'
+        };
+        let afterScroll = {
+            'background-color': '#ffffff',
+            'color': '#323A45',
+            'height': '65px',
+            'border-bottom': '1px solid #DDD'
+        };
+        $(window).bind('scroll', function() {
+            var topValue = $(window).scrollTop();
+            if (topValue >= 390) {
+                $('.head_home').fadeIn('slow');
+                $('.head_home').css(afterScroll);
+                $('.head_center > a').css({ 'color': '#323A45' });
+            }
+            else if (topValue < 400 && topValue > 10) {
+                $('.head_home').fadeOut('slow');
+            }
+            else {
+                $('.head_home').fadeIn('slow');
+                $('.head_home').css(beforeScroll);
+                $('.head_center > a').css({ 'color': '#ffffff' });
+            }
+
+        })
+
     },
     watch:{
 //      bg:function () {
@@ -141,10 +182,10 @@
 //    },
     data() {
       return{
-        name:"桃红",
+        name:"粉 红",
         C:0,
-        M:66,
-        Y:34,
+        M:37,
+        Y:26,
         K:0,
 
         //旧值
@@ -154,7 +195,7 @@
 
 
 
-        pinyin:'TAOHONG',
+        pinyin:'FENHONG',
         li_items:[
           {name:'粉 红',pinyin:'FENHONG',id:"col001",rgb:[255,179,167],cmyk:[0,37,26,0]},
           {name:'妃 色',pinyin:'FEISE',id:"col002",rgb:[237,87,54],cmyk:[1,81,87,0]},
@@ -187,6 +228,25 @@
 /*a:hover {*/
   /*background-color: #F596AA;*/
 /*}*/
+  .head_home {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 3;
+    color: #ffffff;
+    padding-top: 30px;
+  }
+  .head_home>a {
+    margin-left: 30px;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .head_home :last-child {
+    /* display: inline; */
+    float: right;
+    margin-right: 10px;
+  }
   .example-7-color-preview {
     display: inline-block;
     width: 50px;

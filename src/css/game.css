@@ -1,12 +1,10 @@
-/*!
- * Bootstrap Responsive v2.3.1
- *
- * Copyright 2012 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
- */
+#gunArea {
+	position: relative;
+	height: 119px;
+	/*background-color: #FFB3A7;*/
+	/*background:url(../img/city.png) bottom center no-repeat transparent;*/
+}
+
 .third.meter {
     margin-top: -76px;
     width: 22%;
@@ -138,7 +136,8 @@ p#level {
 h1#current-color {
 	display: block;
 	font-size: 50px;
-	font-weight: normal;
+	font-family:'Krungthep';
+	font-weight: bold;
 	margin: 0 auto 10px;
 	width: 200px;
 	text-shadow: 0px 4px 0 rgba(0, 0, 0, 0.4);
@@ -146,28 +145,31 @@ h1#current-color {
 
 .topBar {
 	width: 100%;
-	background-color: #222222;
-	border-bottom: 1px solid #222222;
-	padding-top: 15px;
+	background-color: rgb(241,219,176);
+	border-bottom: 0px solid rgb(241,219,176);
+	padding-top: 40px;
+	padding-bottom: 20px;
 }
 
 
 .mainPlaying {
 	width: 100%;
 	background:#FFB3A7;
-	border-top: 1px solid #F47983;
+	/*border-top: 1px solid #F47983;*/
 	text-align: center;
     /*background: url(../img/BackgroundTest3.jpg) center top repeat #F47983;*/
 }
 .bottomBar {
 	width: 100%;
-    box-shadow:0 7px 9px #000;
-    background: url(../img/Dirt.png) center top repeat #111111;
+	background:#FFB3A7;
+	/*background:rgb(193,224,211);*/
+    /*box-shadow:0 7px 9px #000;*/
+    /*background: url(../img/Dirt.png) center top repeat #FFFFFF;*/
 }
 .road {
 	width: 100%;
 
-    background: url(../img/street.png) center top repeat #111111;
+    background: url(../img/street.png) center top repeat #FFFFFF;
 }
 .clearfix {
 	*zoom: 1;

@@ -33,12 +33,12 @@
       </div>
     </div>
 
-    <!--坦克和路-->
+    <!--云朵-->
     <div>
-      <img id="tank1" style="position: absolute; right: 50px; top: 545px" class="autor" src="../img/Tankleft.png" />
-      <img id="tank2" style="position: absolute; right: 150px; top: 545px" class="autor" src="../img/Tankleft.png" />
-      <img id="tank3" style="position: absolute; left: 50px; top: 545px" class="autol" src="../img/Tank.png" />
-      <img id="roadImage" src="../img/Street.png" />
+      <img id="cloud1" style="position: absolute; right: 50px; top: 545px" class="autor" src="../img/cloud.png" />
+      <img id="cloud2" style="position: absolute; right: 150px; top: 545px" class="autor" src="../img/cloud2.png" />
+      <img id="cloud3" style="position: absolute; left: 50px; top: 545px" class="autol" src="../img/cloud2.png" />
+      <!--<img id="roadImage" src="../img/Street.png" />-->
     </div>
 
     <!--地面-->
@@ -281,8 +281,8 @@
 
         //让左右的坦克动起来
         function moveAutos() {
-          $('.autol').each(function() { animatethis($(this), 5000,true); });
-          $('.autor').each(function() { animatethis($(this), 5000,false); });
+          $('.autol').each(function() { animatethis($(this),1000,true); });
+          $('.autor').each(function() { animatethis($(this), 1000,false); });
 
         }
 
@@ -718,6 +718,8 @@
           let move = "+=" + distance + "px";
           let negMove="-=" + distance + "px";
           let tankSpeed =2000+distance+ (Math.random() * 2000);
+
+          //(selector).animate({styles},speed,easing,callback)
           $(targetElement).animate({ marginLeft: (left ? move: "0px"), marginRight: (left ? "0px" : move)},
             {
               duration: tankSpeed,
@@ -734,6 +736,34 @@
               }
             });
         };
+
+          //白云运动函数
+          //left为true：向左移动
+          //left为false:向右移动
+          function animateCloud(targetElement, speed, left) {
+              let distance = Math.round(Math.random() * 1000);
+              let move = "+=" + distance + "px";
+              let negMove="-=" + distance + "px";
+              let tankSpeed =2000+distance+ (Math.random() * 2000);
+
+              //(selector).animate({styles},speed,easing,callback)
+              $(targetElement).animate({ marginLeft: (left ? move: "0px"), marginRight: (left ? "0px" : move)},
+                  {
+                      duration: tankSpeed,
+                      complete: function ()
+                      {
+                          targetElement.animate({ marginLeft: (left ? negMove: "0px"), marginRight: (left ? "0px" : negMove)},
+                              {
+                                  duration: tankSpeed,
+                                  complete: function ()
+                                  {
+                                      animatethis(targetElement, speed, left, distance);
+                                  }
+                              });
+                      }
+                  });
+          };
+
 
         // social media stuff
         $('#fb-post').click(function(e) {

@@ -629,7 +629,7 @@ body.munsell #colors {
 /*modify*/
 #col001 {
   left: 10px;
-  top: 40px;
+  top: 100px;
   background-position: 0px 0px
 }
 body.munsell #col001 {
@@ -637,7 +637,7 @@ body.munsell #col001 {
 }
 #col002 {
   left: 86px;
-  top: 40px;
+  top: 100px;
   background-position: -50px 0px
 }
 body.munsell #col002 {
@@ -645,7 +645,7 @@ body.munsell #col002 {
 }
 #col003 {
   left: 162px;
-  top: 40px;
+  top: 100px;
   background-position: -100px 0px
 }
 body.munsell #col003 {
@@ -653,7 +653,7 @@ body.munsell #col003 {
 }
 #col004 {
   left: 238px;
-  top: 40px;
+  top: 100px;
   background-position: -150px 0px
 }
 body.munsell #col004 {
@@ -661,7 +661,7 @@ body.munsell #col004 {
 }
 #col005 {
   left: 314px;
-  top: 40px;
+  top: 100px;
   background-position: -200px 0px
 }
 body.munsell #col005 {
@@ -669,7 +669,7 @@ body.munsell #col005 {
 }
 #col006 {
   left: 10px;
-  top: 342px;
+  top: 402px;
   background-position: -250px 0px
 }
 body.munsell #col006 {
@@ -677,7 +677,7 @@ body.munsell #col006 {
 }
 #col007 {
   left: 86px;
-  top: 342px;
+  top: 402px;
   background-position: -300px 0px
 }
 body.munsell #col007 {
@@ -685,7 +685,7 @@ body.munsell #col007 {
 }
 #col008 {
   left: 162px;
-  top: 342px;
+  top: 402px;
   background-position: -350px 0px
 }
 body.munsell #col008 {
@@ -693,7 +693,7 @@ body.munsell #col008 {
 }
 #col009 {
   left: 238px;
-  top: 342px;
+  top: 402px;
   background-position: -400px 0px
 }
 body.munsell #col009 {
@@ -701,7 +701,7 @@ body.munsell #col009 {
 }
 #col010 {
   left: 314px;
-  top: 342px;
+  top: 402px;
   background-position: -450px 0px
 }
 body.munsell #col010 {

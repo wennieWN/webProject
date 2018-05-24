@@ -9,8 +9,7 @@
             <router-link to="/game">游戏</router-link>
 
             <div class="head_center">
-                <router-link to="/index">登陆</router-link>
-                <router-link to="/index">注册</router-link>
+                <span>Color Pop</span>
             </div>
         </div>
         <!-- 轮播 -->
@@ -208,7 +207,7 @@ img {
     z-index: -1;
 }
 .picshow .el-carousel__container {
-    height: 550px;
+    height: 400px;
 }
 
 .el-carousel__item .button_group {

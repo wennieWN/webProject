@@ -6,7 +6,7 @@ import Index from '@/views/Index'
 import Login from '@/views/Login'
 import Register from '@/views/Register'
 import Center from '@/views/Center'
-import color from '../../src/views/color.vue'
+import color from '../views/Color.vue'
 import game from '../views/game.vue'
 import Start from '../views/Start.vue'
 
