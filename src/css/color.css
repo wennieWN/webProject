@@ -192,14 +192,14 @@ body.munsell {
   position: absolute;
   left: 909px
 }
-h1 {
-  position: fixed;
-  z-index: 100;
-  top: -7px;
-  width: 58px;
-  height: 231px;
-  background: url(../images/txt.png) 0 -74px no-repeat
-}
+/*h1 {*/
+  /*position: fixed;*/
+  /*z-index: 100;*/
+  /*top: -7px;*/
+  /*width: 58px;*/
+  /*height: 231px;*/
+  /*background: url(../images/txt.png) 0 -74px no-repeat*/
+/*}*/
 #controller {
   position: absolute;
   top: 272px;

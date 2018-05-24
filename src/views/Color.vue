@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ChineseColor">
     <div class="head_home">
       <router-link to="/index">首页</router-link>
       <router-link to="/color">色彩</router-link>
@@ -213,7 +213,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import '../css/color.css';
 /*a{*/
   /*display: block;*/
@@ -247,25 +247,19 @@
     float: right;
     margin-right: 10px;
   }
-  .example-7-color-preview {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-  }
-  .el-progress-bar__outer {
+  /*.ChineseColor >>> .example-7-color-preview {*/
+    /*display: inline-block;*/
+    /*width: 50px;*/
+    /*height: 50px;*/
+  /*}*/
+  .ChineseColor >>> .el-progress-bar__outer {
     background-color: transparent;
   }
-  .el-col {
+  .ChineseColor >>> .el-col {
     border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
   }
   .bg-transparent {
     background: transparent;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
   }
   .grid-content {
     border-radius: 4px;

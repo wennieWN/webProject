@@ -118,13 +118,7 @@ export default {
 </script>
 
 
-<style>
-.footer {
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    color: #8a8a8a;
-}
+<style scoped>
 
 .main_content {
     margin: auto;
@@ -200,13 +194,13 @@ img {
     margin-top: 30px;
 }
 
-.el-carousel__item {
+.home >>> .el-carousel__item {
     background-image: url('../assets/index_head.png');
     /*background-repeat: no-repeat;*/
     background-size: 100% 100%;
-    z-index: -1;
+    /*z-index: -1;*/
 }
-.picshow .el-carousel__container {
+.home >>> .el-carousel__container {
     height: 400px;
 }
 

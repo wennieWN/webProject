@@ -1,5 +1,17 @@
 <template>
   <div>
+
+    <div class="head_home">
+      <router-link to="/index">首页</router-link>
+      <router-link to="/color">色彩</router-link>
+      <router-link to="/index">搭配</router-link>
+      <router-link to="/game">游戏</router-link>
+
+      <div class="head_center">
+        <span>Color Pop</span>
+      </div>
+    </div>
+
     <!--需要被击中的颜色-->
     <div class="topBar">
       <h1 id="current-color"></h1>
@@ -35,9 +47,11 @@
 
     <!--云朵-->
     <div>
-      <img id="cloud1" style="position: absolute; right: 50px; top: 545px" class="autor" src="../img/cloud.png" />
-      <img id="cloud2" style="position: absolute; right: 150px; top: 545px" class="autor" src="../img/cloud2.png" />
-      <img id="cloud3" style="position: absolute; left: 50px; top: 545px" class="autol" src="../img/cloud2.png" />
+      <img id="cloud1" style="position: absolute; right: 50px; top: 520px" class="autor" src="../img/cloud.png" />
+      <img id="cloud2" style="position: absolute; right: -100px; top: 600px" class="autor" src="../img/cloud2.png" />
+      <img id="cloud3" style="position: absolute; right: -50px; top: 680px" class="autor" src="../img/cloud2.png" />
+      <img id="cloud4" style="position: absolute; left: 50px; top: 520px" class="autol" src="../img/cloud2.png" />
+      <img id="cloud5" style="position: absolute; left: -100px; top: 580px" class="autol" src="../img/cloud.png" />
       <!--<img id="roadImage" src="../img/Street.png" />-->
     </div>
 
@@ -47,8 +61,8 @@
 
         <!--分数-->
         <div class="third">
-          <h2>Score</h2>
-          <p id="points-container"><span id="points">0</span></p>
+          <h2 style="font-family: Chalkduster">Score</h2>
+          <p id="points-container"><span id="points" style="font-family: Chalkduster;color: #FFFFFF">0</span></p>
           <div class="clearfix"></div>
         </div>
 
@@ -56,15 +70,15 @@
         <div class="third meter">
           <div class="chart" data-percent="0"></div>
           <div class="level">
-            <h4>Level</h4>
-            <p id="level"><span id="Span1">0</span></p>
+            <h4 style="font-family: Chalkduster">Level</h4>
+            <p id="level" style="font-family: Chalkduster;color: #FFFFFF"><span id="Span1">0</span></p>
           </div>
         </div>
 
         <!--击杀个数-->
         <div class="third">
-          <h2>Invaders Destroyed</h2>
-          <p id="kills-container"><span id="kills">0</span></p>
+          <h2 style="font-family: Chalkduster">Invaders Destroyed</h2>
+          <p id="kills-container"><span id="kills" style="font-family: Chalkduster;color: #FFFFFF">0</span></p>
         </div>
 
         <!-- 弹出框 -->
@@ -120,6 +134,38 @@
 
   export default {
     name: 'game',
+    mounted:function () {
+          document.querySelector('body').setAttribute('style', "background:#FFFFFF");
+
+          //窗口滚动事件
+          let beforeScroll = {
+              'background-color': 'transparent',
+              'color': '#ffffff',
+              'border': 'none'
+          };
+          let afterScroll = {
+              'background-color': '#ffffff',
+              'color': '#323A45',
+              'height': '65px',
+              'border-bottom': '1px solid #DDD'
+          };
+          $(window).bind('scroll', function() {
+              var topValue = $(window).scrollTop();
+              if (topValue >= 390) {
+                  $('.head_home').fadeIn('slow');
+                  $('.head_home').css(afterScroll);
+                  $('.head_center > a').css({ 'color': '#323A45' });
+              }
+              else if (topValue < 400 && topValue > 10) {
+                  $('.head_home').fadeOut('slow');
+              }
+              else {
+                  $('.head_home').fadeIn('slow');
+                  $('.head_home').css(beforeScroll);
+                  $('.head_center > a').css({ 'color': '#ffffff' });
+              }
+          })
+      },
     methods:{
       change:function (rgb,name,pinyin,cmyk) {
 //        document.querySelector('body').setAttribute('style', color);
@@ -136,6 +182,7 @@
       }
     },
     mounted:function () {
+      document.querySelector('body').setAttribute('style', "background:#ffffff");
       //开始载入的JS
       $(document).ready(function () {
         // Classes
@@ -265,26 +312,22 @@
         $("#kills").text(currentGame.totalKills);
 
         //设置路的长度
-        $('#roadImage').attr("width", $(window).width());
+//        $('#roadImage').attr("width", $(window).width());
 
         generate_level();
         let moveInvaderInterval = setInterval(function() { moveInvaders(); }, 1600);
 
-        //让左右的坦克动起来
+        //白云运动
         moveAutos();
 
         $(window).resize(function() {
+
           $('#roadImage').attr("width", $(window).width());
           generate_level();
         });
 
 
-        //让左右的坦克动起来
-        function moveAutos() {
-          $('.autol').each(function() { animatethis($(this),1000,true); });
-          $('.autor').each(function() { animatethis($(this), 1000,false); });
 
-        }
 
 
         // continue game on modal close
@@ -712,58 +755,39 @@
           }
         }
 
-        //坦克运动函数
-        function animatethis(targetElement, speed, left) {
-          let distance = Math.round(Math.random() * 1000);
+
+        //所有白云运动
+        function moveAutos() {
+            $('.autol').each(function() { animatethis($(this),true); });
+            $('.autor').each(function() { animatethis($(this),false); });
+        }
+
+        //单个白云运动函数
+        function animatethis(targetElement, left) {
+          let distance = $(document.body).width();
           let move = "+=" + distance + "px";
           let negMove="-=" + distance + "px";
-          let tankSpeed =2000+distance+ (Math.random() * 2000);
+          let tankSpeed =Math.random()*10000+Math.random()*10000+Math.random()*10000+Math.random()*10000+5000;
 
           //(selector).animate({styles},speed,easing,callback)
           $(targetElement).animate({ marginLeft: (left ? move: "0px"), marginRight: (left ? "0px" : move)},
             {
               duration: tankSpeed,
+              easing:"linear",
               complete: function ()
               {
                 targetElement.animate({ marginLeft: (left ? negMove: "0px"), marginRight: (left ? "0px" : negMove)},
                   {
                     duration: tankSpeed,
+                    easing:"linear",
                     complete: function ()
                     {
-                      animatethis(targetElement, speed, left, distance);
+                      animatethis(targetElement, left, distance);
                     }
                   });
               }
             });
-        };
-
-          //白云运动函数
-          //left为true：向左移动
-          //left为false:向右移动
-          function animateCloud(targetElement, speed, left) {
-              let distance = Math.round(Math.random() * 1000);
-              let move = "+=" + distance + "px";
-              let negMove="-=" + distance + "px";
-              let tankSpeed =2000+distance+ (Math.random() * 2000);
-
-              //(selector).animate({styles},speed,easing,callback)
-              $(targetElement).animate({ marginLeft: (left ? move: "0px"), marginRight: (left ? "0px" : move)},
-                  {
-                      duration: tankSpeed,
-                      complete: function ()
-                      {
-                          targetElement.animate({ marginLeft: (left ? negMove: "0px"), marginRight: (left ? "0px" : negMove)},
-                              {
-                                  duration: tankSpeed,
-                                  complete: function ()
-                                  {
-                                      animatethis(targetElement, speed, left, distance);
-                                  }
-                              });
-                      }
-                  });
-          };
-
+        }
 
         // social media stuff
         $('#fb-post').click(function(e) {
@@ -801,8 +825,29 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import '../css/game.css';
   @import '../css/bootstrap.css';
+
+  .head_home {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 3;
+    color: #ffffff;
+    padding-top: 30px;
+  }
+  .head_home>a {
+    margin-left: 30px;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .head_home :last-child {
+    /* display: inline; */
+    float: right;
+    margin-right: 10px;
+  }
+
 
 </style>
