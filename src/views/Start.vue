@@ -746,7 +746,7 @@
         name: 'Start',
         methods: {
             toNext:function () {
-                this.$router.push({name:'color'})
+                this.$router.push({name:'Index'})
             }
         }
     }

@@ -2,12 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 
-import Home from '@/views/Home'
+import Index from '@/views/Index'
 import Login from '@/views/Login'
 import Register from '@/views/Register'
 import Center from '@/views/Center'
 import color from '../../src/views/color.vue'
-import index from '../views/index.vue'
 import game from '../views/game.vue'
 import Start from '../views/Start.vue'
 
@@ -29,6 +28,10 @@ export default new Router({
         path: '/',
         name: 'Start',
       component: Start
+    }, {
+        path: '/index',
+        name: 'Index',
+        component: Index
     }, {
       path: '/color',
       name: 'color',

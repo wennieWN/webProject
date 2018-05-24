@@ -89,6 +89,8 @@
 //        document.querySelector('body').setAttribute('style', color);
 //        this.bg=rgb;
         let color_css="background:rgb("+rgb[0]+","+rgb[1]+','+rgb[2]+')';
+//        $("#bgWrap").css('background', color_css);
+//        $("#bgWrap").css('background-image', 'url(../images/texture.png)');
         document.querySelector('body').setAttribute('style', color_css);
         this.bg_new=rgb;
         this.name=name;
@@ -100,7 +102,9 @@
       }
     },
     mounted:function () {
-      document.querySelector('body').setAttribute('style', "background:rgb(244,121,131)");
+//      $("#bgWrap").css('background', "rgb(244,121,131)");
+//      document.querySelector('bgWrap').setAttribute('style', "background:rgb(244,121,131)");
+      document.querySelector('body').setAttribute('style', "background:rgb(255,179,167)");
     },
     watch:{
 //      bg:function () {

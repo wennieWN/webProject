@@ -3,127 +3,99 @@
         <!-- 头部 -->
 
         <div class="head_home">
-            <a>项目</a>
-            <a>估算</a>
-            <a>帮助</a>
+            <router-link to="/index">首页</router-link>
+            <router-link to="/color">色彩</router-link>
+            <router-link to="/index">搭配</router-link>
+            <router-link to="/game">游戏</router-link>
+
             <div class="head_center">
-                <router-link to="/login">登陆</router-link>
-                <a>注册</a>
+                <router-link to="/index">登陆</router-link>
+                <router-link to="/index">注册</router-link>
             </div>
         </div>
         <!-- 轮播 -->
         <div class="picshow">
         <el-carousel :interval="5000" arrow="always" :autoplay="false">
             <el-carousel-item :key="1">
-                <div class="button_group">
-                    <el-button @click="toVER">发布需求</el-button>
-                    <el-button>查看需求</el-button>
-                </div>
+
             </el-carousel-item>
             <el-carousel-item :key="2">
             </el-carousel-item>
         </el-carousel>
         </div>
 
-
-        <!-- 详细 -->
-
-        <div class="home_status">
-            <el-row :gutter="24">
-                <el-col :span="8">
-                    <div style="display:block">项目总数</div>
-                    <div style="display:block">88888</div>
-                </el-col>
-                <el-col :span="8">
-                    <div style="display:block">注册开发者</div>
-                    <div style="display:block">88888</div>
-                </el-col>
-                <el-col :span="8">
-                    <div style="display:block">已完成项目</div>
-                    <div style="display:block">88888</div>
-                </el-col>
-            </el-row>
-
-        </div>
-
         <div class="main_content">
             <div class="home_flow">
                 <div class="content">
-                    需求市场 + 权威估价
+                    <span style="font-family:'Xingkai SC'" v-on:click="toColor">
+                    最美丨中国传统色彩
+                    </span>
                     <div class="content_child">
-                        提供了需求项目发布平台，和迄今为止最权威的项目估价系统
+                        <span style="font-family:'LingWai SC'">
+                            建筑、服饰、绘画、瓷器、漆器、刺绣……中国传统文化的方方面面，承载着中国几千年的色彩文化和审美情趣。中国的色彩理念融合了自然、宇宙、伦理、哲学等等观念，形成了独特的中国色彩文化。
+                        </span>
                     </div>
                 </div>
-                <img src="../assets/app.png">
+                <img src="../assets/color.png">
             </div>
 
             <div class="home_flow">
-                <img src="../assets/coder.png">
+                <img src="../assets/match.png">
                 <div class="content">
-                    高质量开发者
+                    <span style="font-family:'Xingkai SC'">
+                    好看的色彩搭配
+                    </span>
                     <div class="content_child">
-                        以高校学生为依托，为您提供高水准的开发人选
+                        <span style="font-family:'LingWai SC'">
+                            色彩在平面设计中是作品中的灵魂。想运用好它一定要了解平面设计色彩搭配的知识。平面设计师与画家的区别在：平面设计师手中的颜料只有四管儿，但它可以依靠网点的疏密特性，调和出可感知的颜色。
+                        </span>
                     </div>
                 </div>
             </div>
 
             <div class="home_flow">
                 <div class="content">
-                    科学开发管理
+                    <span style="font-family:'Xingkai SC'" v-on:click="toGame">
+                    关于颜色的游戏
+                    </span>
                     <div class="content_child">
-                        规范化，透明的软件开发管理平台
+                        <span style="font-family:'LingWai SC'">
+                            RGB色彩模式是工业界的一种颜色标准，是通过对红、绿、蓝三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的。
+                        </span>
                     </div>
                 </div>
-                <img src="../assets/monitor.png">
+                <img src="../assets/game.png">
             </div>
-
-            <div class="home_flow">
-                <img src="../assets/security.png">
-                <div class="content">
-                    高校质保
-                    <div class="content_child">
-                        高校实验室最新代码质量检测服务，确保交付质量
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- footer -->
-        <div class="footer">
-            同济大学 XLab
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Home',
-    data() {
-        return {
-            msg: 'welcome'
-        }
-    },
+    name: 'Index',
     methods:{
-      toStepOne: function () {
-          this.$router.push( {path:'/stepone'});
+      toColor: function () {
+          this.$router.push( {path:'/color'});
       },
-      toVER: function () {
-        this.$router.push( {path:'/ver'});
+      toGame: function () {
+        this.$router.push( {path:'/game'});
       }
     },
     mounted: function() {
+
+        document.querySelector('body').setAttribute('style', "background:#ffffff");
         //窗口滚动事件
-        var beforeScroll = {
+        let beforeScroll = {
             'background-color': 'transparent',
             'color': '#ffffff',
             'border': 'none'
         };
-        var afterScroll = {
+        let afterScroll = {
             'background-color': '#ffffff',
             'color': '#323A45',
             'height': '65px',
             'border-bottom': '1px solid #DDD'
-        }
+        };
         $(window).bind('scroll', function() {
             var topValue = $(window).scrollTop();
             if (topValue >= 390) {
@@ -141,7 +113,6 @@ export default {
             }
 
         })
-
     }
 }
 
@@ -161,8 +132,8 @@ export default {
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
 
 .head_home {
@@ -185,9 +156,9 @@ img {
 .home_flow {
     /* text-align: center; */
     border-bottom: 1px solid #DDD;
-    height: 250px;
+    height: 300px;
     padding-top: 30px;
-    width: 55%;
+    width: 65%;
     margin:auto;
     display: flex;
     flex-direction: row;
@@ -195,10 +166,10 @@ img {
 }
 
 .content_child {
-    font-size: 15px;
+    font-size: 22px;
     color: #667182;
     margin-top: 30px;
-    width: 250px;
+    width: 500px;
 }
 
 .head_home>a {
@@ -231,13 +202,13 @@ img {
 }
 
 .el-carousel__item {
-    background-image: url('../assets/head_pic.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../assets/index_head.png');
+    /*background-repeat: no-repeat;*/
     background-size: 100% 100%;
     z-index: -1;
 }
 .picshow .el-carousel__container {
-    height: 400px;
+    height: 550px;
 }
 
 .el-carousel__item .button_group {
