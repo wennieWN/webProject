@@ -5,6 +5,7 @@
       <router-link to="/color">色彩</router-link>
       <router-link to="/index">搭配</router-link>
       <router-link to="/game">游戏</router-link>
+      <router-link to="/city">城市</router-link>
 
       <div class="head_center">
         <span>Color Pop</span>

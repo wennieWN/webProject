@@ -7,7 +7,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+
 import $ from 'jquery'
+import 'bootstrap/dist/js/bootstrap.min'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

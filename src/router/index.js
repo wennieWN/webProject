@@ -9,6 +9,7 @@ import Center from '@/views/Center'
 import color from '../views/Color.vue'
 import game from '../views/game.vue'
 import Start from '../views/Start.vue'
+import City from '../views/City.vue'
 
 
 // 引入样式
@@ -36,10 +37,14 @@ export default new Router({
       path: '/color',
       name: 'color',
       component: color
-    },,{
+    },{
       path: '/game',
       name: 'game',
       component: game
+    },{
+        path: '/city',
+        name: 'City',
+        component: City
     },{
         path: '/login',
         name: 'Login',

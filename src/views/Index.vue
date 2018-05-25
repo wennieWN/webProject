@@ -7,6 +7,7 @@
             <router-link to="/color">色彩</router-link>
             <router-link to="/index">搭配</router-link>
             <router-link to="/game">游戏</router-link>
+            <router-link to="/city">城市</router-link>
 
             <div class="head_center">
                 <span>Color Pop</span>
@@ -65,6 +66,21 @@
                 </div>
                 <img src="../assets/game.png">
             </div>
+
+            <div class="home_flow">
+                <img src="../assets/city.png">
+                <div class="content">
+                    <span style="font-family:'Xingkai SC'" v-on:click="toCity">
+                    构建你的城市
+                    </span>
+                    <div class="content_child">
+                        <span style="font-family:'LingWai SC'">
+                            通过搭建不同色彩的房子🏠，建造你的经济系统。
+                        </span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
@@ -78,6 +94,9 @@ export default {
       },
       toGame: function () {
         this.$router.push( {path:'/game'});
+      },
+      toCity: function () {
+        this.$router.push( {path:'/city'});
       }
     },
     mounted: function() {
